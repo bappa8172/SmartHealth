@@ -240,4 +240,18 @@ class WellnessViewModel(application: Application) : AndroidViewModel(application
             preferencesRepository.updateVibrationEnabled(enabled)
         }
     }
+    
+    // Firebase sync method
+    fun syncLocalDataToFirebase() {
+        viewModelScope.launch {
+            if (firebaseAuthRepository.isUserLoggedIn()) {
+                val stats = repository.getTodayStats()
+                firebaseDataRepository.updateUserPoints(
+                    totalPoints = stats.totalPoints,
+                    totalBreaks = stats.totalBreaks,
+                    dailyStreak = stats.dailyStreak
+                )
+            }
+        }
+    }
 }

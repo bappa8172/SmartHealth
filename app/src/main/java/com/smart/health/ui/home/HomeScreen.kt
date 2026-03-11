@@ -99,6 +99,8 @@ fun HomeScreen(
     // Refresh stats when screen is displayed
     LaunchedEffect(Unit) {
         viewModel.refreshStats()
+        // Sync local data to Firebase if logged in
+        viewModel.syncLocalDataToFirebase()
     }
     
     // Show duration picker dialog

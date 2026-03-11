@@ -64,6 +64,10 @@ fun SignInScreen(
                         isLoading = false
                         signInResult.onSuccess {
                             Toast.makeText(context, "Welcome ${it.displayName}!", Toast.LENGTH_SHORT).show()
+                            
+                            // Sync existing local data to Firebase after first sign-in
+                            viewModel.syncLocalDataToFirebase()
+                            
                             navController.navigate(Screen.Home.route) {
                                 popUpTo(Screen.SignIn.route) { inclusive = true }
                             }
@@ -148,8 +152,18 @@ fun SignInScreen(
             // Google Sign-In Button
             Button(
                 onClick = {
+                    val webClientId = context.getString(R.string.default_web_client_id)
+                    if (webClientId == "YOUR_OAUTH_CLIENT_ID_HERE") {
+                        Toast.makeText(
+                            context,
+                            "Please configure OAuth Client ID in strings.xml. See FIREBASE_SETUP.md",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return@Button
+                    }
+                    
                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken(context.getString(R.string.default_web_client_id))
+                        .requestIdToken(webClientId)
                         .requestEmail()
                         .build()
                     
@@ -175,7 +189,7 @@ fun SignInScreen(
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Image(
-                            painter = painterResource(id = android.R.drawable.ic_menu_sort_by_size),
+                            painter = painterResource(id = R.drawable.ic_google_logo),
                             contentDescription = "Google Logo",
                             modifier = Modifier.size(24.dp)
                         )
