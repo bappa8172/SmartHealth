@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Smart Health</string>
+    
+    <!-- 
+    TODO: Configure OAuth 2.0 in Firebase Console
+    1. Go to Firebase Console > Authentication > Sign-in method > Google
+    2. Enable Google Sign-In
+    3. Add your SHA-1 certificate fingerprint in Project Settings
+    4. After configuration, the OAuth client ID will be auto-generated in google-services.json
+    5. Replace the placeholder below with your actual OAuth client ID
+    
+    To get your SHA-1 fingerprint, run in terminal:
+    ./gradlew signingReport
+    
+    Or for debug key:
+    keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+    -->
+    <string name="default_web_client_id">YOUR_OAUTH_CLIENT_ID_HERE</string>
+</resources>

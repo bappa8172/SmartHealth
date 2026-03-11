@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "93924991095",
+    "firebase_url": "https://smart-health-dc9e4-default-rtdb.firebaseio.com",
+    "project_id": "smart-health-dc9e4",
+    "storage_bucket": "smart-health-dc9e4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93924991095:android:040b0e53f630bd83f4e672",
+        "android_client_info": {
+          "package_name": "com.smart.health"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXST8mnNh0Bs4Ynm78vDYFRrO6VGLh-Lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
