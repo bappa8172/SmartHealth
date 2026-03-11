@@ -36,8 +36,8 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun SmartHealthTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    darkTheme: Boolean = false, // Force light theme for now
+    dynamicColor: Boolean = false, // Disable dynamic colors for consistency
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
